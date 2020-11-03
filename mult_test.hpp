@@ -35,4 +35,27 @@ TEST(MultTest, DoubleNeg) {
 }
 
 
+TEST(MultTest, String) {
+    Op* zero = new Op(0);
+    Op* eight = new Op(8);
+    Mult* test = new Mult(zero,eight);
+    EXPECT_EQ(test->stringify(), "0.000000 * 8.000000");
+}
+
+TEST(MultTest,oneNegString) {
+    Op* zero = new Op(0);
+    Op* eight = new Op(-8);
+    Mult* test = new Mult(zero,eight);
+    EXPECT_EQ(test->stringify(), "0.000000 * -8.000000");
+}
+
+TEST(MultTest, twoNegString) {
+    Op* one = new Op(-1);
+    Op* eight = new Op(-8);
+    Mult* test = new Mult(one,eight);
+    EXPECT_EQ(test->stringify(), "-1.000000 * -8.000000");
+}
+
+
+
 #endif
