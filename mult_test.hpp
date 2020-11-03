@@ -13,4 +13,11 @@ TEST(MultTest, NumTimesZero) {
     EXPECT_EQ(test->evaluate(), 0);
 }
 
+TEST(MultTest, NumTimesNum) {
+    Op* one = new Op(1);
+    Op* eight = new Op(8);
+    Mult* test = new Mult(one,eight);
+    EXPECT_EQ(test->evaluate(), 8);
+}
+
 #endif
