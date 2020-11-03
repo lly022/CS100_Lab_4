@@ -34,5 +34,28 @@ TEST(AddTest, NegNumPlusNegNum) {
     EXPECT_EQ(test->evaluate(), -9);
 }
 
+TEST(AddTest, StringNumPlusNum) {
+    Op* one = new Op(1);
+    Op* eight = new Op(8);
+    Add* test = new Add(one,eight);
+    EXPECT_EQ(test->stringify(), "1.000000 + 8.000000");
+}
+
+TEST(AddTest, StringNegNumPlusNum) {
+    Op* one = new Op(-1);
+    Op* eight = new Op(8);
+    Add* test = new Add(one,eight);
+    EXPECT_EQ(test->stringify(), "-1.000000 + 8.000000");
+}
+
+TEST(AddTest, StringNegNumPlusNegNum) {
+    Op* one = new Op(-1);
+    Op* eight = new Op(-8);
+    Add* test = new Add(one,eight);
+    EXPECT_EQ(test->stringify(), "-1.000000 + -8.000000");
+}
+
+
+
 
 #endif
