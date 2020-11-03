@@ -20,4 +20,19 @@ TEST(MultTest, NumTimesNum) {
     EXPECT_EQ(test->evaluate(), 8);
 }
 
+TEST(MultTest, SingleNegNum) {
+    Op* negTwo = new Op(-2);
+    Op* eight = new Op(8);
+    Mult* test = new Mult(negTwo,eight);
+    EXPECT_EQ(test->evaluate(), -16);
+}
+
+TEST(MultTest, DoubleNeg) {
+    Op* negTwo = new Op(-2);
+    Op* negEight = new Op(-8);
+    Mult* test = new Mult(negTwo,negEight);
+    EXPECT_EQ(test->evaluate(), 16);
+}
+
+
 #endif
