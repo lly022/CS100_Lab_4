@@ -13,4 +13,26 @@ TEST(AddTest, NumPlusZero) {
     EXPECT_EQ(test->evaluate(), 8);
 }
 
+TEST(AddTest, NumPlusNum) {
+    Op* one = new Op(1);
+    Op* eight = new Op(8);
+    Add* test = new Add(one,eight);
+    EXPECT_EQ(test->evaluate(), 9);
+}
+
+TEST(AddTest, NegNumPlusNum) {
+    Op* one = new Op(-1);
+    Op* eight = new Op(8);
+    Add* test = new Add(one,eight);
+    EXPECT_EQ(test->evaluate(), 7);
+}
+
+TEST(AddTest, NegNumPlusNegNum) {
+    Op* one = new Op(-1);
+    Op* eight = new Op(-8);
+    Add* test = new Add(one,eight);
+    EXPECT_EQ(test->evaluate(), -9);
+}
+
+
 #endif
