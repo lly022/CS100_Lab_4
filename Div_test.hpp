@@ -94,6 +94,7 @@ TEST(DivTest, AddDividedByNumStringify){
         Add* ten = new Add(four, six);
         Div* test = new Div(ten, two);
         EXPECT_EQ(test->stringify(), "4.000000 + 6.000000/2.000000");
+}
 
 TEST(DivTest, DivByZeroEvaluate){
 	Op* op1 = new Op(8);
