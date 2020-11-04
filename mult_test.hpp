@@ -5,6 +5,7 @@
 
 #include "mult.hpp"
 #include "op.hpp"
+#include "add.hpp"
 
 TEST(MultTest, NumTimesZero) {
     Op* zero = new Op(0);
@@ -54,6 +55,24 @@ TEST(MultTest, twoNegString) {
     Op* eight = new Op(-8);
     Mult* test = new Mult(one,eight);
     EXPECT_EQ(test->stringify(), "-1.000000 * -8.000000");
+}
+
+TEST(MultTest, NumTimesAdd) {
+    Op* two = new Op(2);
+    Op* three = new Op(3);
+    Op* eight = new Op(8);
+    Add* val= new Add(two,three);
+    Mult* test = new Mult(val,eight);
+    EXPECT_EQ(test->evaluate(),40 );
+}
+
+TEST(MultTest, NumTimesAddString) {
+    Op* two = new Op(2);
+    Op* three = new Op(3);
+    Op* eight = new Op(8);
+    Add* val= new Add(two,three);
+    Mult* test = new Mult(val,eight);
+    EXPECT_EQ(test->stringify(),"2.000000 + 3.000000 * 8.000000");
 }
 
 

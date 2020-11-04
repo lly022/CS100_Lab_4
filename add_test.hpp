@@ -1,5 +1,5 @@
-#ifndef __MULT_TEST_HPP__
-#define __MULT_TEST_HPP__
+#ifndef __ADD_TEST_HPP__
+#define __ADD_TEST_HPP__
 
 #include "gtest/gtest.h"
 
