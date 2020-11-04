@@ -11,12 +11,12 @@ class Pow : public Base {
                 double num=1;
 		if(val2->evaluate()<0){
 			for(unsigned i =0; i>val2->evaluate();i--){
-			num= num/val1->evaluate;
+			num= num/val1->evaluate();
 		}
 		}
 		else{
 			for(unsigned i=0; i<val2->evaluate();i++){
-			num*= val1->evaluate;
+			num*= val1->evaluate();
 }
 }
 		return num;
