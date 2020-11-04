@@ -4,6 +4,7 @@
 #include "gtest/gtest.h"
 
 #include "sub.hpp"
+#include "add.hpp"
 
 TEST(SubTest, NumSubNumEvaluate){
 	Op* eight = new Op(8);
@@ -59,6 +60,24 @@ TEST(SubTest, NegNumSubNegNumStringify){
 	Op* negFive = new Op(-5);
 	Sub* test = new Sub(negThree, negFive);
 	EXPECT_EQ(test->stringify(), "-3.000000--5.000000");
+}
+
+TEST(SubTest, AddSubNum){
+        Op* Three = new Op(3);
+        Op* five = new Op(5);
+	Op* two = new Op(2);
+	Add* val = new Add(Three,five);
+        Sub* test = new Sub(val,two);
+        EXPECT_EQ(test->evaluate(), 6);
+}
+
+TEST(SubTest, StringAddSubNum){
+        Op* Three = new Op(3);
+        Op* five = new Op(5);
+        Op* two = new Op(2);
+        Add* val = new Add(Three,five);
+        Sub* test = new Sub(val,two);
+        EXPECT_EQ(test->stringify(), "3.000000 + 5.000000-2.000000");
 }
 
 
