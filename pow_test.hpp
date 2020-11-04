@@ -32,7 +32,7 @@ TEST(PowTest, NumToNegNum) {
     Op* two = new Op(-2);
     Op* eight = new Op(8);
     Pow* test = new Pow(eight,two);
-    EXPECT_EQ(test->evaluate(), (1/64));
+    EXPECT_EQ(test->evaluate(), (0.015625));
 }
 
 TEST(PowTest, StringNumToNum) {
@@ -42,6 +42,18 @@ TEST(PowTest, StringNumToNum) {
     EXPECT_EQ(test->stringify(), "8.000000 ** 2.000000");
 }
 
+TEST(PowTest, StringNumToNegNum) {
+    Op* two = new Op(-2);
+    Op* eight = new Op(8);
+    Pow* test = new Pow(eight,two);
+    EXPECT_EQ(test->stringify(), "8.000000 ** -2.000000");
+}
 
+TEST(PowTest, DeciNum) {
+    Op* two = new Op(2);
+    Op* three = new Op(3.5);
+    Pow* test = new Pow(three,two);
+    EXPECT_NEAR(test->evaluate(), 12.25, .001);
+}
 
 #endif
