@@ -56,4 +56,24 @@ TEST(PowTest, DeciNum) {
     EXPECT_NEAR(test->evaluate(), 12.25, .001);
 }
 
+
+TEST(PowTest, AddToNum) {
+    Op* two = new Op(2);
+    Op* five = new Op(5);
+    Op* three = new Op(3);
+    Mult* val = new Mult(five,three);
+    Pow* test = new Pow(val,two);
+    EXPECT_EQ(test->evaluate(), 225);
+}
+
+TEST(PowTest, StringAddToNum) {
+    Op* two = new Op(2);
+    Op* five = new Op(5);
+    Op* three = new Op(3);
+    Mult* val = new Mult(five,three);
+    Pow* test = new Pow(val,two);
+    EXPECT_EQ(test->stringify(),"5.000000 * 3.000000 ** 2.000000");
+}
+
+
 #endif
