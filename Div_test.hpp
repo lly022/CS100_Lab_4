@@ -62,6 +62,32 @@ TEST(DivTest, DivTwoNegStringify){
         EXPECT_EQ(test->stringify(), "-8.000000/-4.000000");
 }
 
+TEST(DivTest, DivByZeroEvaluate){
+	Op* op1 = new Op(8);
+	Op* op2 = new Op(0);
+	Div* test = new Div(op1, op2);
+	EXPECT_EQ(test->evaluate(), -1);
+}
 
+TEST(DivTest, DivByZeroStringify){
+	Op* op1 = new Op(8);
+	Op* op2 = new Op(0);
+	Div* test = new Div(op1, op2);
+	EXPECT_EQ(test->stringify(), "-1");
+}
+
+TEST(DivTest, DivZeroByZeroEvaluate){
+	Op* op1 = new Op(0);
+	Op* op2 = new Op(0);
+	Div* test = new Div(op1, op2);
+	EXPECT_EQ(test->evaluate(), -1);
+}
+
+TEST(DivTest, DivZeroByZeroStringify){
+	Op* op1 = new Op(0);
+	Op* op2 = new Op(0);
+	Div* test = new Div(op1, op2);
+	EXPECT_EQ(test->stringify(), "-1");
+}
 
 #endif //__DIV_TEST_HPP__
